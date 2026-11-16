@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111111">
+<title>Grove Burgers | Menu</title>
+<meta name="description" content="Explore the Grove Burgers menu.">
+<style>
+:root{--bg:#111;--panel:#1b1b1b;--text:#f5f5f2;--muted:#aaa;--line:#333;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+button{font:inherit}.top{position:sticky;top:0;z-index:5;background:#111e;border-bottom:1px solid #ffffff16;backdrop-filter:blur(14px)}
+.nav{max-width:var(--max);margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;letter-spacing:.14em;font-size:17px}.brand span{display:block;font-size:9px;letter-spacing:.27em;color:#aaa;margin-top:4px}
+.lang{border:1px solid #555;background:transparent;color:white;border-radius:999px;padding:9px 15px;cursor:pointer}
+.hero{max-width:var(--max);margin:auto;padding:54px 22px 35px;display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center}
+.eyebrow{font-size:11px;letter-spacing:.28em;color:#aaa;font-weight:700}.hero h1{font-size:clamp(48px,7vw,86px);line-height:.92;letter-spacing:-.065em;margin:18px 0}
+.hero p{color:#aaa;max-width:420px;line-height:1.7}.hero-art{height:360px;border-radius:24px;overflow:hidden;position:relative;background:linear-gradient(135deg,#292929,#101010);border:1px solid #ffffff18}
+.hero-art img{width:100%;height:100%;object-fit:cover;opacity:.82}.hero-art:after{content:"GOOD FOOD. BETTER MOOD.";position:absolute;bottom:20px;left:20px;font-size:11px;letter-spacing:.24em;font-weight:800;text-shadow:0 2px 12px #000}
+.section{max-width:var(--max);margin:auto;padding:22px}.section-head{display:flex;justify-content:space-between;align-items:end;margin:22px 0 18px}
+.section-head h2{font-size:27px;margin:0;letter-spacing:-.04em}.section-head p{margin:0;color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:9px;overflow:auto;padding:5px 0 18px;scrollbar-width:none}.tabs button{white-space:nowrap;border:1px solid #444;background:transparent;color:#bbb;padding:10px 16px;border-radius:999px;cursor:pointer;font-size:13px}
+.tabs button.active{background:#eee;color:#111;border-color:#eee;font-weight:800}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:var(--panel);border:1px solid #ffffff12;border-radius:18px;overflow:hidden;min-width:0}.photo{height:205px;background:#292929}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}.info{padding:16px}.name-row{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.name{font-weight:800;font-size:17px}.price{font-size:14px;font-weight:800;white-space:nowrap;color:#eee}.desc{font-size:12px;line-height:1.6;color:#aaa;margin:9px 0 0}
+.tag{display:inline-block;color:#bbb;border:1px solid #444;border-radius:99px;padding:4px 8px;font-size:9px;letter-spacing:.08em;margin-top:12px}
+.note{margin:24px 0 40px;padding:16px;border:1px dashed #666;border-radius:14px;color:#bbb;font-size:12px;line-height:1.7;background:#191919}
+.footer{border-top:1px solid #292929;text-align:center;padding:28px 20px 40px;color:#888;font-size:11px;letter-spacing:.12em}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:38px;gap:22px}.hero-art{height:250px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.photo{height:150px}.info{padding:12px}.name{font-size:14px}.price{font-size:12px}.desc{font-size:11px}.section-head h2{font-size:23px}}
+@media(max-width:420px){.grid{grid-template-columns:1fr 1fr}.photo{height:125px}.brand{font-size:14px}.hero h1{font-size:54px}}
+</style></head>
+<body>
+<header class="top"><div class="nav"><div class="brand">GROVE BURGERS<span>GOOD FOOD. BETTER MOOD.</span></div><button class="lang" id="langBtn">العربية</button></div></header>
+<main>
+<section class="hero"><div><div class="eyebrow" data-en="FRESH • BOLD • MADE WITH LOVE" data-ar="طازج • غني بالنكهة • بحب">FRESH • BOLD • MADE WITH LOVE</div>
+<h1 data-en="GOOD FOOD.<br>BETTER MOOD." data-ar="أكل لذيذ.<br>مزاج أفضل.">GOOD FOOD.<br>BETTER MOOD.</h1>
+<p data-en="Your Grove favorites, all in one place. Explore the menu and find your next bite." data-ar="كل نكهات قروف في مكان واحد. تصفح المنيو واكتشف وجبتك القادمة.">Your Grove favorites, all in one place. Explore the menu and find your next bite.</p></div>
+<div class="hero-art"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=85" alt="Gourmet burger"></div></section>
+<section class="section"><div class="section-head"><div><div class="eyebrow" data-en="WHAT ARE YOU CRAVING?" data-ar="وش تشتهي اليوم؟">WHAT ARE YOU CRAVING?</div><h2 data-en="OUR MENU" data-ar="قائمة الطعام">OUR MENU</h2></div><p data-en="MADE FRESH. SERVED WITH GOOD VIBES." data-ar="طازج دائمًا، ويقدم بمزاج رايق.">MADE FRESH. SERVED WITH GOOD VIBES.</p></div>
+<nav class="tabs" id="tabs">
+<button class="active" data-cat="all" data-en="All items" data-ar="كل الأصناف">All items</button>
+<button data-cat="meals" data-en="Meals" data-ar="الوجبات">Meals</button>
+<button data-cat="singles" data-en="Singles" data-ar="السنقل">Singles</button>
+<button data-cat="fries" data-en="Fries" data-ar="الفرايز">Fries</button>
+<button data-cat="sauces" data-en="Sauces" data-ar="الصوصات">Sauces</button>
+<button data-cat="drinks" data-en="Drinks" data-ar="المشروبات">Drinks</button>
+</nav><div class="grid" id="menuGrid"></div>
+<div class="note" data-en="DRAFT MENU • All names, descriptions, photos and prices are temporary suggestions for the first design preview. They are not confirmed restaurant details." data-ar="منيو تجريبي • جميع الأسماء والأوصاف والصور والأسعار مقترحة مؤقتًا لغرض المعاينة، وليست تفاصيل معتمدة من المطعم.">DRAFT MENU • All names, descriptions, photos and prices are temporary suggestions for the first design preview. They are not confirmed restaurant details.</div>
+</section></main><footer class="footer">GROVE BURGERS · GOOD FOOD. BETTER MOOD.</footer>
+<script>
+const photos={
+ burger:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80',
+ double:'https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=900&q=80',
+ chicken:'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=900&q=80',
+ fries:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=80',
+ loaded:'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=900&q=80',
+ sauce:'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=900&q=80',
+ drink:'https://images.unsplash.com/photo-1581636625402-29b2a704ef13?auto=format&fit=crop&w=900&q=80'
+};
+const items=[
+{cat:'meals',en:'Grove Classic Meal',ar:'وجبة قروف كلاسيك',de:'Classic burger, fries and a drink.',da:'برجر كلاسيك مع فرايز ومشروب.',p:39,img:'burger',tag:'HOUSE FAVORITE'},
+{cat:'meals',en:'Double Smash Meal',ar:'وجبة دبل سماش',de:'Double beef, cheese, fries and a drink.',da:'دبل لحم وجبنة مع فرايز ومشروب.',p:45,img:'double'},
+{cat:'meals',en:'Crispy Chicken Meal',ar:'وجبة كريسبي تشكن',de:'Crispy chicken burger with fries and a drink.',da:'برجر دجاج مقرمش مع فرايز ومشروب.',p:37,img:'chicken'},
+{cat:'meals',en:'BBQ Melt Meal',ar:'وجبة باربكيو ميلت',de:'Beef, smoky BBQ sauce, cheese, fries and a drink.',da:'لحم وصوص باربكيو مدخن وجبنة مع فرايز ومشروب.',p:42,img:'burger'},
+{cat:'meals',en:'Mushroom Swiss Meal',ar:'وجبة مشروم سويس',de:'Beef, mushrooms and Swiss-style cheese with sides.',da:'لحم ومشروم وجبنة سويسرية مع البطاطس والمشروب.',p:43,img:'double'},
+{cat:'meals',en:'Spicy Chicken Meal',ar:'وجبة سبايسي تشكن',de:'Spicy crispy chicken with fries and a drink.',da:'دجاج مقرمش حار مع فرايز ومشروب.',p:38,img:'chicken'},
+{cat:'meals',en:'Triple Smash Meal',ar:'وجبة تربل سماش',de:'Three smashed beef patties, cheese and sides.',da:'ثلاث قطع لحم سماش مع الجبنة والبطاطس والمشروب.',p:52,img:'double',tag:'BIG BITE'},
+{cat:'meals',en:'Kids Grove Meal',ar:'وجبة أطفال قروف',de:'A smaller burger, fries and a drink.',da:'برجر بحجم صغير مع فرايز ومشروب.',p:29,img:'burger'},
+{cat:'singles',en:'Grove Classic',ar:'قروف كلاسيك',de:'Beef patty, cheese and Grove sauce.',da:'قطعة لحم وجبنة وصوص قروف.',p:27,img:'burger'},
+{cat:'singles',en:'Double Smash',ar:'دبل سماش',de:'Two smashed beef patties and melted cheese.',da:'قطعتان لحم سماش مع جبنة ذائبة.',p:33,img:'double',tag:'BEST SELLER'},
+{cat:'singles',en:'Triple Smash',ar:'تربل سماش',de:'Three juicy smashed beef patties.',da:'ثلاث قطع لحم سماش طرية.',p:40,img:'double'},
+{cat:'singles',en:'Crispy Chicken',ar:'كريسبي تشكن',de:'Crispy chicken, lettuce and creamy sauce.',da:'دجاج مقرمش وخس وصوص كريمي.',p:24,img:'chicken'},
+{cat:'singles',en:'Spicy Chicken',ar:'سبايسي تشكن',de:'Crispy spicy chicken with signature dressing.',da:'دجاج مقرمش حار مع صوص مميز.',p:25,img:'chicken'},
+{cat:'singles',en:'BBQ Melt',ar:'باربكيو ميلت',de:'Beef, cheddar and smoky BBQ sauce.',da:'لحم وشيدر وصوص باربكيو مدخن.',p:30,img:'burger'},
+{cat:'singles',en:'Mushroom Swiss',ar:'مشروم سويس',de:'Beef, mushrooms and creamy cheese.',da:'لحم ومشروم وجبنة كريمية.',p:31,img:'double'},
+{cat:'singles',en:'Cheese Burger',ar:'تشيز برجر',de:'Classic beef and American cheese.',da:'لحم كلاسيك مع جبنة أمريكية.',p:22,img:'burger'},
+{cat:'fries',en:'Classic Fries',ar:'فرايز كلاسيك',de:'Golden crispy fries.',da:'بطاطس ذهبية ومقرمشة.',p:10,img:'fries'},
+{cat:'fries',en:'Seasoned Fries',ar:'فرايز متبلة',de:'Crispy fries with house seasoning.',da:'بطاطس مقرمشة بتتبيلة المطعم.',p:12,img:'fries'},
+{cat:'fries',en:'Cheese Fries',ar:'تشيز فرايز',de:'Fries topped with creamy cheese sauce.',da:'بطاطس مع صوص الجبنة الكريمي.',p:16,img:'loaded'},
+{cat:'fries',en:'Loaded Grove Fries',ar:'لودد قروف فرايز',de:'Loaded fries with cheese and Grove sauce.',da:'بطاطس محملة بالجبنة وصوص قروف.',p:19,img:'loaded',tag:'LOADED'},
+{cat:'sauces',en:'Grove Sauce',ar:'صوص قروف',de:'Our creamy signature house sauce.',da:'صوص المطعم الخاص والكريمي.',p:3,img:'sauce'},
+{cat:'sauces',en:'Smoky BBQ',ar:'باربكيو مدخن',de:'Sweet and smoky BBQ sauce.',da:'صوص باربكيو حلو ومدخن.',p:3,img:'sauce'},
+{cat:'sauces',en:'Spicy Mayo',ar:'سبايسي مايو',de:'Creamy mayonnaise with a spicy kick.',da:'مايونيز كريمي بلمسة حارة.',p:3,img:'sauce'},
+{cat:'sauces',en:'Cheese Sauce',ar:'صوص الجبنة',de:'Smooth and rich cheese dip.',da:'غموس جبنة ناعم وغني.',p:4,img:'sauce'},
+{cat:'sauces',en:'Ranch',ar:'رانش',de:'Cool and creamy ranch dressing.',da:'صوص رانش بارد وكريمي.',p:3,img:'sauce'},
+{cat:'sauces',en:'Ketchup',ar:'كاتشب',de:'Classic tomato ketchup.',da:'كاتشب الطماطم الكلاسيكي.',p:2,img:'sauce'},
+{cat:'drinks',en:'Pepsi',ar:'بيبسي',de:'Chilled soft drink.',da:'مشروب غازي بارد.',p:6,img:'drink'},
+{cat:'drinks',en:'Diet Pepsi',ar:'بيبسي دايت',de:'Chilled sugar-free soft drink.',da:'مشروب غازي بارد بدون سكر.',p:6,img:'drink'},
+{cat:'drinks',en:'7UP',ar:'سفن أب',de:'Refreshing lemon-lime soda.',da:'مشروب ليمون وليمون أخضر منعش.',p:6,img:'drink'},
+{cat:'drinks',en:'Mirinda',ar:'ميرندا',de:'Fruity orange soda.',da:'مشروب غازي بنكهة البرتقال.',p:6,img:'drink'},
+{cat:'drinks',en:'Water',ar:'مياه',de:'Bottled drinking water.',da:'مياه شرب معبأة.',p:2,img:'drink'}
+];
+let lang='en',category='all';const grid=document.getElementById('menuGrid');
+function render(){grid.innerHTML=items.filter(x=>category==='all'||x.cat===category).map(x=>`<article class="card"><div class="photo"><img loading="lazy" src="${photos[x.img]}" alt="${lang==='en'?x.en:x.ar}"></div><div class="info"><div class="name-row"><div class="name">${lang==='en'?x.en:x.ar}</div><div class="price">${x.p} <small>SAR</small></div></div><p class="desc">${lang==='en'?x.de:x.da}</p>${x.tag?`<span class="tag">${x.tag}</span>`:''}</div></article>`).join('')}
+function setLang(next){lang=next;document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);render()}
+document.getElementById('langBtn').addEventListener('click',()=>setLang(lang==='en'?'ar':'en'));
+document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-cat]');if(!b)return;category=b.dataset.cat;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x===b));render()});render();
+</script></body></html>
