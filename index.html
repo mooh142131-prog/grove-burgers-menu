@@ -22,7 +22,7 @@ button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,3
 .section-head h2{font-size:27px;margin:0;letter-spacing:-.04em}.section-head h2:after{content:"";display:block;width:54px;height:2px;background:var(--gold);margin-top:11px;box-shadow:0 0 12px rgba(198,166,107,.45)}.section-head p{margin:0;color:var(--muted);font-size:12px}
 .tabs{display:flex;gap:9px;overflow:auto;padding:5px 0 18px;scrollbar-width:none}.tabs button{white-space:nowrap;border:1px solid #55534d;background:#303136;color:#d7d2c8;padding:10px 16px;border-radius:999px;cursor:pointer;font-size:13px}
 .tabs button.active{background:var(--gold);color:#242326;border-color:var(--gold);font-weight:800}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.card{background:linear-gradient(155deg,#35363b,#2b2c30);border:1px solid rgba(198,166,107,.24);box-shadow:0 10px 28px rgba(0,0,0,.16);border-radius:18px;overflow:hidden;min-width:0}.photo{height:205px;background:#25262a}
+.card{background:linear-gradient(155deg,#35363b,#2b2c30);border:1px solid rgba(198,166,107,.24);box-shadow:0 10px 28px rgba(0,0,0,.16);border-radius:18px;overflow:hidden;min-width:0}.photo{height:205px;background:linear-gradient(145deg,#3a3a3c 0%,#26272a 55%,#1f2022 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block;background:#292a2d}.card{background:linear-gradient(155deg,#35363b,#2b2c30)}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}.info{padding:16px}.name-row{display:flex;justify-content:space-between;gap:10px;align-items:start}
 .name{font-weight:800;font-size:17px}.price{font-size:14px;font-weight:800;white-space:nowrap;color:#f0ede5}.desc{font-size:12px;line-height:1.6;color:#b4b0a7;margin:9px 0 0}
 .tag{display:inline-block;color:var(--gold);border:1px solid rgba(198,166,107,.42);border-radius:99px;padding:4px 8px;font-size:9px;letter-spacing:.08em;margin-top:12px}
@@ -51,40 +51,46 @@ button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,3
 </section></main><footer class="footer">GROVE BURGERS · GOOD FOOD. BETTER MOOD.</footer>
 <script>
 const photos={
- burger:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80',
- double:'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=900&q=80',
- chicken:'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=900&q=80',
- fries:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=80',
- loaded:'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=900&q=80',
+ burger:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85',
+ double:'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=1000&q=85',
+ chicken:'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=1000&q=85',
+ fries:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=1000&q=85',
+ loaded:'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=1000&q=85',
+ bbqBurger:'https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=1000&q=85',
+ mushroomBurger:'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=85',
+ spicyChicken:'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=1000&q=85&sat=-10',
+ triple:'https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1000&q=85',
+ kids:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85&sat=-15',
+ cheeseBurger:'https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=1000&q=85&sat=-15',
  groveSauce:'https://res.cloudinary.com/perkchops/image/upload/v1600281481/ingredients/20208162137/ydehhqccjwflbckpiyib.jpg',
  bbqSauce:'https://betterresto.s3.us-west-1.wasabisys.com/production/13185/BBQ_Sauce_866080bccf.png',
  spicyMayo:'https://assets.nextorder.co/menu-items/ufBGiINACEwE9vY51JMT/generated_1768260995943.png',
  cheeseSauce:'https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/taco_bell_nacho_cheese_cup.jpg',
  ranchSauce:'https://cms.wingstopmexico.com/pub/media/catalog/product/cache/0596dc430a9ffb112e3a75442b805206/r/a/ranch.jpg',
  ketchupSauce:'https://cdn.allotta.io/image/upload/v1763759557/dxp-images/afh/products/10013000003084-heinz-tomato-ketchup-dip--squeeze-500027-g-case-packet/marketing-view-lowest-unit-prep-needed_content-hub-7546308_9d6be15ee8360f4bd199660453d295a3.png',
- pepsi:'https://www.find.com.tr/assets/images/Uploads/Company/745361/NewsPhoto/13488/find_202175_224956456.jpg',
+ pepsi:'https://kartinkof.club/uploads/posts/2023-05/thumbs/1683336282_kartinkof-club-p-banka-pepsi-kartinki-4.jpg',
  dietPepsi:'https://ahmadalabdalla.com/word/static/images/5b6df9fe0afc2ee99807d7284ce5e43c.jpg',
- sevenUp:'https://amrestcdn.azureedge.net/ph-web-ordering/Pizza_Hut_PL/Zdjecia/TripleBoxPL/butelka_7up_1000x1000.jpg',
- mirinda:'https://images.deliveryhero.io/image/talabat/MenuItems/Miranda638143095274030409.jpg',
- water:'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=900&q=80'
+ sevenUp:'https://www.manifestoph.com/cdn/shop/products/Beer_Soda_WaterCollection_2.png?v=1668679936',
+ mirinda:'https://images.bolt.eu/store/2025/2025-06-06/e18e4867-156b-4cf6-98df-36f059bd64c3.jpeg',
+ water:'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1000&q=85'
 };
 const items=[
 {cat:'meals',en:'Grove Classic Meal',ar:'وجبة قروف كلاسيك',de:'Classic burger, fries and a drink.',da:'برجر كلاسيك مع فرايز ومشروب.',p:39,img:'burger',tag:'HOUSE FAVORITE'},
 {cat:'meals',en:'Double Smash Meal',ar:'وجبة دبل سماش',de:'Double beef, cheese, fries and a drink.',da:'دبل لحم وجبنة مع فرايز ومشروب.',p:45,img:'double'},
 {cat:'meals',en:'Crispy Chicken Meal',ar:'وجبة كريسبي تشكن',de:'Crispy chicken burger with fries and a drink.',da:'برجر دجاج مقرمش مع فرايز ومشروب.',p:37,img:'chicken'},
-{cat:'meals',en:'BBQ Melt Meal',ar:'وجبة باربكيو ميلت',de:'Beef, smoky BBQ sauce, cheese, fries and a drink.',da:'لحم وصوص باربكيو مدخن وجبنة مع فرايز ومشروب.',p:42,img:'burger'},
-{cat:'meals',en:'Mushroom Swiss Meal',ar:'وجبة مشروم سويس',de:'Beef, mushrooms and Swiss-style cheese with sides.',da:'لحم ومشروم وجبنة سويسرية مع البطاطس والمشروب.',p:43,img:'double'},
-{cat:'meals',en:'Spicy Chicken Meal',ar:'وجبة سبايسي تشكن',de:'Spicy crispy chicken with fries and a drink.',da:'دجاج مقرمش حار مع فرايز ومشروب.',p:38,img:'chicken'},
-{cat:'meals',en:'Triple Smash Meal',ar:'وجبة تربل سماش',de:'Three smashed beef patties, cheese and sides.',da:'ثلاث قطع لحم سماش مع الجبنة والبطاطس والمشروب.',p:52,img:'double',tag:'BIG BITE'},
-{cat:'meals',en:'Kids Grove Meal',ar:'وجبة أطفال قروف',de:'A smaller burger, fries and a drink.',da:'برجر بحجم صغير مع فرايز ومشروب.',p:29,img:'burger'},
+{cat:'meals',en:'BBQ Melt Meal',ar:'وجبة باربكيو ميلت',de:'Beef, smoky BBQ sauce, cheese, fries and a drink.',da:'لحم وصوص باربكيو مدخن وجبنة مع فرايز ومشروب.',p:42,img:'bbqBurger'},
+{cat:'meals',en:'Mushroom Swiss Meal',ar:'وجبة مشروم سويس',de:'Beef, mushrooms and Swiss-style cheese with sides.',da:'لحم ومشروم وجبنة سويسرية مع البطاطس والمشروب.',p:43,img:'mushroomBurger'},
+{cat:'meals',en:'Spicy Chicken Meal',ar:'وجبة سبايسي تشكن',de:'Spicy crispy chicken with fries and a drink.',da:'دجاج مقرمش حار مع فرايز ومشروب.',p:38,img:'spicyChicken'},
+{cat:'meals',en:'Triple Smash Meal',ar:'وجبة تربل سماش',de:'Three smashed beef patties, cheese and sides.',da:'ثلاث قطع لحم سماش مع الجبنة والبطاطس والمشروب.',p:52,img:'triple',tag:'BIG BITE'},
+{cat:'meals',en:'Kids Grove Meal',ar:'وجبة أطفال قروف',de:'A smaller burger, fries and a drink.',da:'برجر بحجم صغير مع فرايز ومشروب.',p:29,img:'kids'},
 {cat:'singles',en:'Grove Classic',ar:'قروف كلاسيك',de:'Beef patty, cheese and Grove sauce.',da:'قطعة لحم وجبنة وصوص قروف.',p:27,img:'burger'},
 {cat:'singles',en:'Double Smash',ar:'دبل سماش',de:'Two smashed beef patties and melted cheese.',da:'قطعتان لحم سماش مع جبنة ذائبة.',p:33,img:'double',tag:'BEST SELLER'},
-{cat:'singles',en:'Triple Smash',ar:'تربل سماش',de:'Three juicy smashed beef patties.',da:'ثلاث قطع لحم سماش طرية.',p:40,img:'double'},
+{cat:'singles',en:'Triple Smash',ar:'تربل سماش',de:'Three juicy smashed beef patties.',da:'ثلاث قطع لحم سماش طرية.',p:40,img:'triple'},
 {cat:'singles',en:'Crispy Chicken',ar:'كريسبي تشكن',de:'Crispy chicken, lettuce and creamy sauce.',da:'دجاج مقرمش وخس وصوص كريمي.',p:24,img:'chicken'},
-{cat:'singles',en:'Spicy Chicken',ar:'سبايسي تشكن',de:'Crispy spicy chicken with signature dressing.',da:'دجاج مقرمش حار مع صوص مميز.',p:25,img:'chicken'},
-{cat:'singles',en:'BBQ Melt',ar:'باربكيو ميلت',de:'Beef, cheddar and smoky BBQ sauce.',da:'لحم وشيدر وصوص باربكيو مدخن.',p:30,img:'burger'},
-{cat:'singles',en:'Mushroom Swiss',ar:'مشروم سويس',de:'Beef, mushrooms and creamy cheese.',da:'لحم ومشروم وجبنة كريمية.',p:31,img:'double'},
-{cat:'singles',en:'Cheese Burger',ar:'تشيز برجر',de:'Classic beef and American cheese.',da:'لحم كلاسيك مع جبنة أمريكية.',p:22,img:'burger'},
+{cat:'singles',en:'Spicy Chicken',ar:'سبايسي تشكن',de:'Crispy spicy chicken with signature dressing.',da:'دجاج مقرمش حار مع صوص مميز.',p:25,img:'spicyChicken'},
+{cat:'singles',en:'BBQ Melt',ar:'باربكيو ميلت',de:'Beef, cheddar and smoky BBQ sauce.',da:'لحم وشيدر وصوص باربكيو مدخن.',p:30,img:'bbqBurger'},
+{cat:'singles',en:'Mushroom Swiss',ar:'مشروم سويس',de:'Beef, mushrooms and creamy cheese.',da:'لحم ومشروم وجبنة كريمية.',p:31,img:'mushroomBurger'},
+{cat:'singles',en:'Cheese Burger',ar:'تشيز برجر',de:'Classic beef and American cheese.',da:'لحم كلاسيك مع جبنة أمريكية.',p:22,img:'cheeseBurger'},
 {cat:'fries',en:'Classic Fries',ar:'فرايز كلاسيك',de:'Golden crispy fries.',da:'بطاطس ذهبية ومقرمشة.',p:10,img:'fries'},
 {cat:'fries',en:'Seasoned Fries',ar:'فرايز متبلة',de:'Crispy fries with house seasoning.',da:'بطاطس مقرمشة بتتبيلة المطعم.',p:12,img:'fries'},
 {cat:'fries',en:'Cheese Fries',ar:'تشيز فرايز',de:'Fries topped with creamy cheese sauce.',da:'بطاطس مع صوص الجبنة الكريمي.',p:16,img:'loaded'},
