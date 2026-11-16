@@ -9,7 +9,10 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background-color:var(--bg);background-image:radial-gradient(ellipse at 12% 8%,rgba(198,166,107,.12),transparent 34%),radial-gradient(ellipse at 90% 42%,rgba(198,166,107,.07),transparent 32%),repeating-linear-gradient(135deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 18px);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
 button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,38,.94);border-bottom:1px solid rgba(198,166,107,.42);backdrop-filter:blur(14px)}
 .nav{max-width:var(--max);margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:900;letter-spacing:.14em;font-size:17px}.brand span{display:block;font-size:9px;letter-spacing:.27em;color:var(--gold);margin-top:4px}
+.brand{display:flex;align-items:center}.brand img{display:block;width:174px;height:auto;max-height:48px;object-fit:contain}
+.hero-copy{position:relative;min-height:360px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.hero-mascot{width:clamp(118px,18vw,190px);height:auto;display:block;margin:18px 0 0 4px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.24));}
+.hero-copy p{margin-bottom:0}
 .lang{border:1px solid var(--gold);background:#303136;color:var(--text);border-radius:999px;padding:9px 15px;cursor:pointer}
 .hero{max-width:var(--max);margin:auto;padding:54px 22px 35px;display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center}
 .eyebrow{font-size:11px;letter-spacing:.28em;color:var(--gold);font-weight:700}.hero h1{font-size:clamp(48px,7vw,86px);line-height:.92;letter-spacing:-.065em;margin:18px 0}
@@ -25,15 +28,15 @@ button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,3
 .tag{display:inline-block;color:var(--gold);border:1px solid rgba(198,166,107,.42);border-radius:99px;padding:4px 8px;font-size:9px;letter-spacing:.08em;margin-top:12px}
 .note{margin:24px 0 40px;padding:16px;border:1px dashed rgba(198,166,107,.55);border-radius:14px;color:var(--muted);font-size:12px;line-height:1.7;background:rgba(48,49,54,.72)}
 .footer{border-top:1px solid rgba(198,166,107,.38);text-align:center;padding:28px 20px 40px;color:var(--muted);font-size:11px;letter-spacing:.12em}
-@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:38px;gap:22px}.hero-art{height:250px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.photo{height:150px}.info{padding:12px}.name{font-size:14px}.price{font-size:12px}.desc{font-size:11px}.section-head h2{font-size:23px}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:38px;gap:22px}.hero-copy{min-height:0}.hero-mascot{width:118px;margin-top:14px}.brand img{width:148px}.hero-art{height:250px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.photo{height:150px}.info{padding:12px}.name{font-size:14px}.price{font-size:12px}.desc{font-size:11px}.section-head h2{font-size:23px}}
 @media(max-width:420px){.grid{grid-template-columns:1fr 1fr}.photo{height:125px}.brand{font-size:14px}.hero h1{font-size:54px}}
 </style></head>
 <body>
-<header class="top"><div class="nav"><div class="brand">GROVE BURGERS<span>GOOD FOOD. BETTER MOOD.</span></div><button class="lang" id="langBtn">العربية</button></div></header>
+<header class="top"><div class="nav"><div class="brand"><img src="grove-logo.svg" alt="Grove Burgers"></div><button class="lang" id="langBtn">العربية</button></div></header>
 <main>
-<section class="hero"><div><div class="eyebrow" data-en="FRESH • BOLD • MADE WITH LOVE" data-ar="طازج • غني بالنكهة • بحب">FRESH • BOLD • MADE WITH LOVE</div>
+<section class="hero"><div class="hero-copy"><div class="eyebrow" data-en="FRESH • BOLD • MADE WITH LOVE" data-ar="طازج • غني بالنكهة • بحب">FRESH • BOLD • MADE WITH LOVE</div>
 <h1 data-en="GOOD FOOD.<br>BETTER MOOD." data-ar="GOOD FOOD.<br>BETTER MOOD.">GOOD FOOD.<br>BETTER MOOD.</h1>
-<p data-en="Your Grove favorites, all in one place. Explore the menu and find your next bite." data-ar="كل نكهات قروف في مكان واحد. تصفح المنيو واكتشف وجبتك القادمة.">Your Grove favorites, all in one place. Explore the menu and find your next bite.</p></div>
+<p data-en="Your Grove favorites, all in one place. Explore the menu and find your next bite." data-ar="كل نكهات قروف في مكان واحد. تصفح المنيو واكتشف وجبتك القادمة.">Your Grove favorites, all in one place. Explore the menu and find your next bite.</p><img class="hero-mascot" src="mascot.svg" alt="Grove Burgers mascot"></div>
 <div class="hero-art"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=85" alt="Gourmet burger"></div></section>
 <section class="section"><div class="section-head"><div><div class="eyebrow" data-en="WHAT ARE YOU CRAVING?" data-ar="وش تشتهي اليوم؟">WHAT ARE YOU CRAVING?</div><h2 data-en="OUR MENU" data-ar="قائمة الطعام">OUR MENU</h2></div><p data-en="MADE FRESH. SERVED WITH GOOD VIBES." data-ar="طازج دائمًا، ويقدم بمزاج رايق.">MADE FRESH. SERVED WITH GOOD VIBES.</p></div>
 <nav class="tabs" id="tabs">
