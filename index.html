@@ -52,7 +52,7 @@ button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,3
 <script>
 const photos={
  burger:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80',
- double:'https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=900&q=80',
+ double:'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=900&q=80',
  chicken:'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=900&q=80',
  fries:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=80',
  loaded:'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=900&q=80',
@@ -102,7 +102,7 @@ const items=[
 {cat:'drinks',en:'Water',ar:'مياه',de:'Bottled drinking water.',da:'مياه شرب معبأة.',p:2,img:'water'}
 ];
 let lang='en',category='all';const grid=document.getElementById('menuGrid');
-function render(){grid.innerHTML=items.filter(x=>category==='all'||x.cat===category).map(x=>`<article class="card"><div class="photo"><img loading="lazy" src="${photos[x.img]}" alt="${lang==='en'?x.en:x.ar}"></div><div class="info"><div class="name-row"><div class="name">${lang==='en'?x.en:x.ar}</div><div class="price">${x.p} <small>SAR</small></div></div><p class="desc">${lang==='en'?x.de:x.da}</p>${x.tag?`<span class="tag">${x.tag}</span>`:''}</div></article>`).join('')}
+function render(){grid.innerHTML=items.filter(x=>category==='all'||x.cat===category).map(x=>`<article class="card"><div class="photo"><img loading="lazy" src="${photos[x.img]}" alt="${lang==='en'?x.en:x.ar}" onerror="this.onerror=null;this.src=photos.burger;"></div><div class="info"><div class="name-row"><div class="name">${lang==='en'?x.en:x.ar}</div><div class="price">${x.p} <small>SAR</small></div></div><p class="desc">${lang==='en'?x.de:x.da}</p>${x.tag?`<span class="tag">${x.tag}</span>`:''}</div></article>`).join('')}
 function setLang(next){lang=next;document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);render()}
 document.getElementById('langBtn').addEventListener('click',()=>setLang(lang==='en'?'ar':'en'));
 document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-cat]');if(!b)return;category=b.dataset.cat;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x===b));render()});render();
