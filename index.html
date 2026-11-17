@@ -33,8 +33,12 @@ button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,3
 @media(max-width:420px){.grid{grid-template-columns:1fr 1fr}.photo{height:125px}.brand{font-size:14px}.hero h1{font-size:54px}}
 
 @font-face{font-family:'Dahka';src:url('assets/Dahka-Normal.woff2') format('woff2');font-display:swap}
-.footer-credit{max-width:var(--max);margin:36px auto 0;padding:24px 22px 30px;border-top:1px solid rgba(198,166,107,.28);display:flex;justify-content:center;align-items:center}
-.footer-credit span{font-family:'Dahka',sans-serif;font-size:30px;line-height:1;color:var(--gold)}
+.footer-credit{max-width:var(--max);margin:26px auto 18px;padding:13px 18px 15px;border:1px solid rgba(198,166,107,.8);border-radius:18px;background:#222326;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
+.footer-credit .credit-heading{font-size:10px;letter-spacing:.12em;font-weight:700;color:var(--gold)}
+.footer-credit .credit-brand{display:flex;align-items:baseline;justify-content:center;gap:6px;color:var(--text);font-size:17px;font-weight:700;line-height:1.25}
+.footer-credit .credit-brand .arabic{font-family:'Dahka',sans-serif;font-size:23px;font-weight:400;line-height:1;direction:rtl}
+.footer-credit .credit-tagline{font-size:10px;color:var(--muted);letter-spacing:.025em}
+@media(max-width:600px){.footer-credit{margin:22px 16px 14px;padding:11px 12px 13px}.footer-credit .credit-brand{font-size:15px}.footer-credit .credit-brand .arabic{font-size:21px}}
 </style></head>
 <body>
 <header class="top"><div class="nav"><div class="brand">GROVE BURGERS</div><button class="lang" id="langBtn">العربية</button></div></header>
@@ -54,7 +58,7 @@ button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,3
 </nav><div class="grid" id="menuGrid"></div>
 <div class="note" data-en="DRAFT MENU • All names, descriptions, photos and prices are temporary suggestions for the first design preview. They are not confirmed restaurant details." data-ar="منيو تجريبي • جميع الأسماء والأوصاف والصور والأسعار مقترحة مؤقتًا لغرض المعاينة، وليست تفاصيل معتمدة من المطعم.">DRAFT MENU • All names, descriptions, photos and prices are temporary suggestions for the first design preview. They are not confirmed restaurant details.</div>
 </section></main>
-<footer class="footer-credit" aria-label="Designed by Lamha"><span lang="ar" dir="rtl">لمحة</span></footer><footer class="footer">GROVE BURGERS · GOOD FOOD. BETTER MOOD.</footer>
+<footer class="footer-credit" aria-label="Designed and developed by Lamha"><div class="credit-heading">DESIGNED &amp; DEVELOPED BY</div><div class="credit-brand"><span>LAMHAH</span><span aria-hidden="true">|</span><span class="arabic" lang="ar" dir="rtl">لمحة</span></div><div class="credit-tagline">Design · Creativity · Digital Experience</div></footer><footer class="footer">GROVE BURGERS · GOOD FOOD. BETTER MOOD.</footer>
 <script>
 const photos={
  burger:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85',
