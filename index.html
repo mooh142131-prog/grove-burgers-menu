@@ -40,6 +40,28 @@ button{font:inherit}.top{position:sticky;top:0;z-index:5;background:rgba(34,35,3
 .footer-credit .credit-brand .arabic{font-family:'Dahka',sans-serif;font-size:23px;font-weight:400;line-height:1;direction:rtl}
 .footer-credit .credit-tagline{font-size:10px;color:var(--muted);letter-spacing:.025em}
 @media(max-width:600px){.footer-credit{margin:22px 16px 14px;padding:11px 12px 13px}.footer-credit .credit-brand{font-size:15px}.footer-credit .credit-brand .arabic{font-size:21px}}
+
+/* Item details dialog */
+.item-card{display:block;width:100%;padding:0;border:1px solid rgba(198,166,107,.24);color:inherit;text-align:start;font-family:inherit;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.item-card:hover,.item-card:focus-visible{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 14px 32px rgba(0,0,0,.25);outline:none}
+.item-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.item-card .info{text-align:start}
+.item-dialog{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,10,11,.78);backdrop-filter:blur(8px)}
+.item-dialog.open{display:flex}
+.dialog-panel{position:relative;width:min(100%,520px);max-height:min(90vh,760px);overflow:auto;border:1px solid rgba(198,166,107,.55);border-radius:24px;background:linear-gradient(155deg,#38393e,#242529);box-shadow:0 24px 80px rgba(0,0,0,.48);animation:dialogIn .22s ease-out}
+.dialog-image{width:100%;height:clamp(210px,38vh,330px);object-fit:cover;display:block;background:#292a2d}
+.dialog-content{padding:22px 24px 25px}
+.dialog-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.dialog-category{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:800;text-transform:uppercase}
+.dialog-close{position:absolute;top:13px;inset-inline-end:13px;width:40px;height:40px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(20,20,20,.72);color:white;font-size:23px;line-height:1;cursor:pointer;z-index:1}
+.dialog-title{font-size:clamp(24px,5vw,32px);line-height:1.2;margin:0;color:var(--text)}
+.dialog-description{color:var(--muted);font-size:15px;line-height:1.8;margin:13px 0 20px}
+.dialog-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid rgba(198,166,107,.28);padding-top:17px}
+.dialog-price{font-size:23px;font-weight:800;color:var(--gold);white-space:nowrap}
+.dialog-hint{font-size:12px;line-height:1.6;color:var(--muted);text-align:end}
+@keyframes dialogIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:600px){.dialog-content{padding:18px}.dialog-image{height:230px}.dialog-description{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.dialog-panel{animation:none}.item-card{transition:none}}
 html[lang="ar"] [data-ar],html[lang="ar"] .name,html[lang="ar"] .desc,html[lang="ar"] .tabs button,html[lang="ar"] .credit-heading,html[lang="ar"] .credit-tagline{font-family:"Thmanyah Sans",sans-serif}
 </style></head>
 <body>
@@ -61,6 +83,19 @@ html[lang="ar"] [data-ar],html[lang="ar"] .name,html[lang="ar"] .desc,html[lang=
 <div class="note" data-en="DRAFT MENU • All names, descriptions, photos and prices are temporary suggestions for the first design preview. They are not confirmed restaurant details." data-ar="منيو تجريبي • جميع الأسماء والأوصاف والصور والأسعار مقترحة مؤقتًا لغرض المعاينة، وليست تفاصيل معتمدة من المطعم.">DRAFT MENU • All names, descriptions, photos and prices are temporary suggestions for the first design preview. They are not confirmed restaurant details.</div>
 </section></main>
 <footer class="footer-credit" aria-label="Designed and developed by Lamha"><div class="credit-heading">DESIGNED &amp; DEVELOPED BY</div><div class="credit-brand"><span>LAMHAH</span><span aria-hidden="true">|</span><span class="arabic" lang="ar" dir="rtl">لمحة</span></div><div class="credit-tagline">Design · Creativity · Digital Experience</div></footer><footer class="footer">GROVE BURGERS · GOOD FOOD. BETTER MOOD.</footer>
+
+<div class="item-dialog" id="itemDialog" aria-hidden="true">
+ <section class="dialog-panel" role="dialog" aria-modal="true" aria-labelledby="dialogTitle" aria-describedby="dialogDescription">
+  <button class="dialog-close" id="dialogClose" type="button" aria-label="Close">×</button>
+  <img class="dialog-image" id="dialogImage" src="" alt="">
+  <div class="dialog-content">
+   <div class="dialog-topline"><span class="dialog-category" id="dialogCategory"></span><span class="tag" id="dialogTag" hidden></span></div>
+   <h2 class="dialog-title" id="dialogTitle"></h2>
+   <p class="dialog-description" id="dialogDescription"></p>
+   <div class="dialog-bottom"><div class="dialog-price" id="dialogPrice"></div><div class="dialog-hint" id="dialogHint"></div></div>
+  </div>
+ </section>
+</div>
 <script>
 const photos={
  burger:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85',
@@ -122,8 +157,13 @@ const items=[
 {cat:'drinks',en:'Water',ar:'مياه',de:'Bottled drinking water.',da:'مياه شرب معبأة.',p:2,img:'water'}
 ];
 let lang='en',category='all';const grid=document.getElementById('menuGrid');
-function render(){grid.innerHTML=items.filter(x=>category==='all'||x.cat===category).map(x=>`<article class="card"><div class="photo"><img loading="lazy" src="${photos[x.img]}" alt="${lang==='en'?x.en:x.ar}" onerror="this.onerror=null;this.src=photos.burger;"></div><div class="info"><div class="name-row"><div class="name">${lang==='en'?x.en:x.ar}</div><div class="price">${x.p} <small>SAR</small></div></div><p class="desc">${lang==='en'?x.de:x.da}</p>${x.tag?`<span class="tag">${x.tag}</span>`:''}</div></article>`).join('')}
+function render(){grid.innerHTML=items.map((x,i)=>({x,i})).filter(({x})=>category==='all'||x.cat===category).map(({x,i})=>`<button type="button" class="card item-card" data-item-index="${i}" aria-haspopup="dialog" aria-label="${lang==='en'?'View details: ':'عرض التفاصيل: '}${lang==='en'?x.en:x.ar}"><div class="photo"><img loading="lazy" src="${photos[x.img]}" alt="" onerror="this.onerror=null;this.src=photos.burger;"></div><div class="info"><div class="name-row"><div class="name">${lang==='en'?x.en:x.ar}</div><div class="price">${x.p} <small>SAR</small></div></div><p class="desc">${lang==='en'?x.de:x.da}</p>${x.tag?`<span class="tag">${x.tag}</span>`:''}</div></button>`).join('')}
 function setLang(next){lang=next;document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.getElementById('langBtn').textContent=lang==='en'?'العربية':'English';document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);const footerHeading=document.querySelector('.credit-heading');const footerTagline=document.querySelector('.credit-tagline');if(footerHeading)footerHeading.textContent=lang==='ar'?'تم التصميم والتطوير بواسطة':'DESIGNED & DEVELOPED BY';if(footerTagline)footerTagline.textContent=lang==='ar'?'تصميم · إبداع · تجربة رقمية':'Design · Creativity · Digital Experience';render()}
+const itemDialog=document.getElementById('itemDialog'),dialogClose=document.getElementById('dialogClose');let lastItemTrigger=null;
+const categoryNames={meals:{en:'Meals',ar:'الوجبات'},singles:{en:'Singles',ar:'السنقل'},fries:{en:'Crispy Bites',ar:'المقرمشات'},sauces:{en:'Sauces',ar:'الصوصات'},drinks:{en:'Drinks',ar:'المشروبات'}};
+function openItem(index,trigger){const x=items[index];if(!x)return;lastItemTrigger=trigger;const title=lang==='en'?x.en:x.ar,description=lang==='en'?x.de:x.da;document.getElementById('dialogImage').src=photos[x.img];document.getElementById('dialogImage').alt=title;document.getElementById('dialogTitle').textContent=title;document.getElementById('dialogDescription').textContent=description;document.getElementById('dialogCategory').textContent=categoryNames[x.cat][lang];document.getElementById('dialogPrice').textContent=lang==='en'?x.p+' SAR':x.p+' ر.س';const tag=document.getElementById('dialogTag');tag.hidden=!x.tag;tag.textContent=x.tag||'';document.getElementById('dialogHint').textContent=lang==='en'?'To order, please speak to a team member':'لطلب الصنف، يرجى التواصل مع الموظف';dialogClose.setAttribute('aria-label',lang==='en'?'Close details':'إغلاق التفاصيل');itemDialog.classList.add('open');itemDialog.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';dialogClose.focus()}
+function closeItem(){itemDialog.classList.remove('open');itemDialog.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastItemTrigger)lastItemTrigger.focus()}
+grid.addEventListener('click',e=>{const card=e.target.closest('[data-item-index]');if(card)openItem(Number(card.dataset.itemIndex),card)});dialogClose.addEventListener('click',closeItem);itemDialog.addEventListener('click',e=>{if(e.target===itemDialog)closeItem()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&itemDialog.classList.contains('open'))closeItem()});
 document.getElementById('langBtn').addEventListener('click',()=>setLang(lang==='en'?'ar':'en'));
 document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-cat]');if(!b)return;category=b.dataset.cat;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x===b));render()});render();
 </script></body></html>
